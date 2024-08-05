@@ -1,0 +1,55 @@
+﻿@page
+@using Rezor_MoviePage.Pages
+@model PrivacyModel
+
+<div class="container" style="
+display: flex;
+justify-content: center;
+min-height: calc(95vh - 65px);
+flex-direction: row;flex-wrap: wrap;
+align-content: center;">
+    @foreach (var service in LibraryMovie.MovieStorage.Movies)
+    {
+        <div class="card" style="width: 18rem; margin-right: 10px;">
+            <img class="card-img-top" src="@service.URL" alt="Card image" style="width: 286px; height: 190px">
+            <div class="card-body">
+                <h5 class="card-title">@service.Title</h5>
+                <p class="card-text">@service.Description</p>
+                <p class="card-text">@service.Cost &#8381;</p>
+                <a href="#" class="btn btn-primary" style="
+                position: relative;
+                bottom: 5px;
+                width: auto;
+                height:40px;
+                text-align: center;">
+                Заказать Услугу</a>
+            </div>
+        </div>
+    }
+    <div class="row-newCard" style=" 
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        /* margin-top: 20px; */
+        text-align: center;">
+        
+    <p>Добавить Услугу</p>
+        <form method="post">
+            <div>
+                <input asp-form="MyServices.Title" type="text" placeholder="Введите название" />
+            </div>
+            <div>
+                <input asp-form="MyServices.Description" type="text" placeholder="Введите описание" />
+            </div>
+            <div>
+                <input asp-form="MyServices.Cost" type="text" placeholder="Введите Стоимость" />
+            </div>
+            <div>
+                <input asp-form="MyServices.URL" type="text" placeholder="Введите URL картинки" />
+            </div>
+            <div>
+                <input type="submit" />
+            </div>
+        </form>
+    </div>
+</div>
