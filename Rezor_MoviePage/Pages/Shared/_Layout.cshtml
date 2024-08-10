@@ -24,8 +24,8 @@
                 <div class="navbar-nav">
                     <a class="nav-link" asp-area="" asp-page="/Index">Меню</a>
                     <a class="nav-link" asp-area="" asp-page="/Services">Список Услуг</a>
-                    <a class="nav-link" asp-page="Services">Мастера</a>
-                    <a class="nav-link" asp-page="Index">Запись на Свободные Даты</a>
+                    @* <a class="nav-link" asp-page="Services">Мастера</a>
+                    <a class="nav-link" asp-page="Index">Запись на Свободные Даты</a> *@
 
                 </div>
             </div>
@@ -33,7 +33,7 @@
     </nav>
     <div class="container_body">
         @RenderBody()  @* вставка страницы *@
-        <div class="footer" style="text-align: center;">
+        <div class="footer" style="text-align: center; position: fixed; bottom: 0; width: 100%;">
             <footer><p>Copyright &copy; 2024 - @ViewData["Title"]</p></footer>
         </div>
     </div>

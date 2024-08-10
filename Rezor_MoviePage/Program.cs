@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Rezor_MoviePage.Data;
 using Rezor_MoviePage.Pages;
 
 
@@ -11,6 +13,9 @@ app.Run();
 
 void ConfigurationServices(IServiceCollection service)
 {
+    service.AddDbContext<MovieContext>(
+        options => options.UseSqlServer(
+            builder.Configuration.GetConnectionString("MovieContext")));
     service.AddRazorPages();
 }
 

@@ -1,0 +1,25 @@
+﻿@page
+
+@using Rezor_MoviePage.Pages.Functions
+@model DeleteModel
+
+<div class="container">
+<form method="post">
+
+    <div class="delete-model" style="
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px 20px;
+        text-align: center;">
+        <h2>Вы Уверенны что хотите удалить Услугу @Model.Movie.Title</h2>
+        <p>Описание: @Model.Movie.Description</p>
+        <span>Стоимость Билета: @Model.Movie.Cost &#8381;</span>
+        <button type="submit" asp-route-id="@Model.Movie.Id" asp-page-handler="delete" class="btn btn-primary" style="
+        position: relative;
+        margin: 10px auto;
+        text-align: center;">
+        Удалить Услугу</button>
+    </div>
+</form>
+</div>

@@ -1,0 +1,33 @@
+﻿@page
+@using Rezor_MoviePage.Pages.Functions
+@model DetailsModel
+
+<div class="container-my">
+    <div class="row-7">
+        <div class="col-url">
+            <div class="img" style="text-align:center;">
+                <img class="img-fluid" src="@Model!.Movie.URL" alt="@Model!.Movie.Title" style="
+                max-width: 50%;
+                max-height: 480px;" />
+            </div>
+        </div>
+        <div class="col-description" style="text-align:center;">
+            <div class="description">
+                <div class="text-bolt">
+                    <b>Название: @Model.Movie.Title</b>
+                </div>
+                <p>Описание: @Model.Movie.Description</p>
+                <span>Стоимость Билета: @Model.Movie.Cost &#8381;</span>
+            </div>
+        </div>
+        <div class="btn-primary" style="text-align:center;">
+            <a class="btn btn-primary" asp-page="/Services" style="
+                position: relative;
+                width: auto;
+                height: 40px;
+                text-align: center;">
+                Назад
+            </a>
+        </div>
+    </div>
+</div>

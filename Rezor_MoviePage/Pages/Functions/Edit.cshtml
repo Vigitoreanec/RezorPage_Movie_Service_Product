@@ -1,0 +1,44 @@
+﻿@page
+@using Rezor_MoviePage.Pages.Functions
+@model EditModel
+
+
+<form method="post">
+
+    <div class="row-newCard" style="
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px 20px;
+        text-align: center;">
+
+        <p>Обновить Услугу</p>
+        <div hidden="hidden">
+            <input asp-for=Movie.Id type="number"/>
+        </div>
+        <div>
+            <input asp-for="Movie.Title" type="text" placeholder="Введите название" />
+            <span asp-validation-for="Movie.Title" class="text-danger"></span>
+        </div>
+        <div>
+            <input asp-for="Movie.Description" type="text" placeholder="Введите описание" />
+            <span asp-validation-for="Movie.Description" class="text-danger"></span>
+        </div>
+        <div>
+            <input asp-for="Movie.Cost" type="text" placeholder="Введите Стоимость" />
+            <span asp-validation-for="Movie.Cost" class="text-danger"></span>
+        </div>
+        <div>
+            <input asp-for="Movie.URL" type="text" placeholder="Введите URL картинки" />
+            <span asp-validation-for="Movie.URL" class="text-danger"></span>
+        </div>
+        <div style="margin-top: 20px">
+            <button type="submit" asp-route-id="@Model.Movie.Id" asp-page-handler="update" class="btn btn-primary" style="
+        position: relative;
+        margin: 10px auto;
+        text-align: center;">
+                Обновить
+            </button>
+        </div>
+    </div>
+</form>
