@@ -26,6 +26,6 @@ public class AddModel(MovieContext movieContext) : PageModel
         //MovieStorage.Movies.Add(movie);
         await movieContext.Movies.AddAsync(movie);
         await movieContext.SaveChangesAsync();
-        return RedirectToPage("/Services");
+        return RedirectToPage("/Functions/Services");
     }
 }

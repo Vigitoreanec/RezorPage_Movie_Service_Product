@@ -13,11 +13,11 @@ public class EditModel(MovieContext movieContext) : PageModel
     public async void OnGetAsync(int id)
     {
         Movie = await movieContext.Movies.FirstAsync(x => x.Id == id);
-        movieContext.SaveChanges();
+        //movieContext.SaveChanges();
         ViewData["Title"] = "Обновление фильма";
         //Movie = MovieStorage.Movies.Find(movie => movie.Id == id);
     }
-    public async Task<IActionResult> OnPostUpdate(int id)
+    public async Task<IActionResult> OnPostUpdateAsync(int id)
     {
         if(!ModelState.IsValid)
         {
@@ -28,8 +28,8 @@ public class EditModel(MovieContext movieContext) : PageModel
         updatevalue.Description = Movie.Description;
         updatevalue.Cost = Movie.Cost;
         updatevalue.URL = Movie.URL;
-
+        updatevalue.Id = id;
         await movieContext.SaveChangesAsync();
-        return RedirectToPage("/Services");
+        return RedirectToPage("/Functions/Services");
     }
 }

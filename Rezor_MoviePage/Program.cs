@@ -11,12 +11,12 @@ var app = builder.Build();
 Configure(app, app.Environment);
 app.Run();
 
-void ConfigurationServices(IServiceCollection service)
+void ConfigurationServices(IServiceCollection services)
 {
-    service.AddDbContext<MovieContext>(
-        options => options.UseSqlServer(
-            builder.Configuration.GetConnectionString("MovieContext")));
-    service.AddRazorPages();
+    services.AddDbContext<MovieContext>(options => 
+        options.UseSqlServer(builder.Configuration.GetConnectionString("MovieContext") ??
+        throw new InvalidOperationException("Connection string 'MovieContext' not found.")));
+    services.AddRazorPages();
 }
 
 void Configure(IApplicationBuilder app, IWebHostEnvironment env)
