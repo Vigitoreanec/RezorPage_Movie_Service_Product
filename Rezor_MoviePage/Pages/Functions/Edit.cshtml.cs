@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Rezor_MoviePage.Data;
+using Rezor_MoviePage.Model;
 
 namespace Rezor_MoviePage.Pages.Functions;
 
@@ -26,7 +27,7 @@ public class EditModel(MovieContext movieContext) : PageModel
         var updatevalue = await movieContext.Movies.FirstAsync(movie => movie.Id == id);
         updatevalue.Title = Movie.Title;
         updatevalue.Description = Movie.Description;
-        updatevalue.Cost = Movie.Cost;
+        //updatevalue.Cost = Movie.Cost;
         updatevalue.URL = Movie.URL;
         updatevalue.Id = id;
         await movieContext.SaveChangesAsync();

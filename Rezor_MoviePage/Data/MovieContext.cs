@@ -1,5 +1,6 @@
 ﻿//using LibraryMovie;
 using Microsoft.EntityFrameworkCore;
+using Rezor_MoviePage.Model;
 //using Microsoft.EntityFrameworkCore.Metadata.Internal;
 namespace Rezor_MoviePage.Data;
 

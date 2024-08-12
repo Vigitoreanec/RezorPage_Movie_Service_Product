@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Rezor_MoviePage.Data;
+using Rezor_MoviePage.Model;
 
 namespace Rezor_MoviePage.Pages.Functions
 {

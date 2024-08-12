@@ -18,19 +18,19 @@
         </div>
         <div>
             <input asp-for="Movie.Title" type="text" placeholder="Введите название" />
-            <span asp-validation-for="Movie.Title" class="text-danger"></span>
+            <div><span asp-validation-for="Movie.Title" class="text-danger"></span></div>
         </div>
         <div>
             <input asp-for="Movie.Description" type="text" placeholder="Введите описание" />
-            <span asp-validation-for="Movie.Description" class="text-danger"></span>
+            <div><span asp-validation-for="Movie.Description" class="text-danger"></span></div>
         </div>
-        <div>
+        @* <div>
             <input asp-for="Movie.Cost" type="text" placeholder="Введите Стоимость" />
-            <span asp-validation-for="Movie.Cost" class="text-danger"></span>
-        </div>
+            <div><span asp-validation-for="Movie.Cost" class="text-danger"></span></div>
+        </div> *@
         <div>
             <input asp-for="Movie.URL" type="text" placeholder="Введите URL картинки" />
-            <span asp-validation-for="Movie.URL" class="text-danger"></span>
+            <div><span asp-validation-for="Movie.URL" class="text-danger"></span></div>
         </div>
         <div style="margin-top: 20px">
             <button type="submit" asp-route-id="@Model.Movie.Id" asp-page-handler="update" class="btn btn-primary" style="

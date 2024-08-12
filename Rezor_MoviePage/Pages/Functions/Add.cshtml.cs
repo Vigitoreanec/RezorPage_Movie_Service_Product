@@ -1,7 +1,9 @@
 //using LibraryMovie;
+using Azure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Rezor_MoviePage.Data;
+using Rezor_MoviePage.Model;
 
 namespace Rezor_MoviePage.Pages.Functions;
 
@@ -23,9 +25,11 @@ public class AddModel(MovieContext movieContext) : PageModel
         {
             return Page();
         }
-        //MovieStorage.Movies.Add(movie);
+        //if (movieContext.Movies.Where(x => x.Title == movie.Title).Count() == 0)
         await movieContext.Movies.AddAsync(movie);
         await movieContext.SaveChangesAsync();
+
+        
         return RedirectToPage("/Functions/Services");
     }
 }
