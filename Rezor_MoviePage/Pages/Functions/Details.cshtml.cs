@@ -10,12 +10,12 @@ namespace Rezor_MoviePage.Pages.Functions;
 public class DetailsModel(MovieContext movieContext) : PageModel
 {
 
-    public Movie? Movie { get; set; }
+    public Shedule? shedule { get; set; }
     public async Task OnGetAsync(int id)
     {
-        Movie = await movieContext.Movies.FirstAsync(x => x.Id == id);
+        shedule = await movieContext.Shedule.Include(shedule => shedule.Movie).FirstAsync(shedule => shedule.SheduleId == id);
                 
-        ViewData["Title"] = $"Услуга  \" {Movie.Title} \" ";
+        ViewData["Title"] = $"Услуга  \" {shedule.Movie.Title} \" ";
         //Movie = MovieStorage.Movies.Find(x => x.Id == id);
 
         //ViewData["Title"] = Movie.Title;

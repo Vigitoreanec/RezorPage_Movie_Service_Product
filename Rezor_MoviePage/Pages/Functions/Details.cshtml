@@ -1,12 +1,27 @@
 ﻿@page
 @using Rezor_MoviePage.Pages.Functions
 @model DetailsModel
-
+    @if(Model.shedule.Movie is null)
+{
+<h3> Такой Услуги нет!!! </h3>
+<p> Выберите другую услугу или вернитесь НАЗАД </p>
+<div class="btn-primary" style="text-align:center;">
+    <a class="btn btn-primary" asp-page="/Functions/Services" style="
+                position: relative;
+                width: auto;
+                height: 40px;
+                text-align: center;">
+        Назад
+    </a>
+</div>
+}
+    else
+{
 <div class="container-my">
     <div class="row-7">
         <div class="col-url">
             <div class="img" style="text-align:center;">
-                <img class="img-fluid" src="@Model!.Movie.URL" alt="@Model!.Movie.Title" style="
+                <img class="img-fluid" src="@Model!.shedule.Movie.URL" alt="@Model!.shedule.Movie.Title" style="
                 max-width: 40%;
                 max-height: 380px;" />
             </div>
@@ -14,10 +29,12 @@
         <div class="col-description" style="text-align:center;">
             <div class="description">
                 <div class="text-bolt">
-                    <b>Название: @Model.Movie.Title</b>
+                    <b>Название: @Model.shedule.Movie.Title</b>
                 </div>
-                <p>Описание: @Model.Movie.Description</p>
-                @* <span>Стоимость Билета: @Model.Movie.Cost &#8381;</span> *@
+                <p>Описание: @Model.shedule.Movie.Description</p>
+                <p class="card-text"><b>Время Начала: </b>@Model.shedule.StartFilm.ToString("HH : mm")</p>
+
+                    <span><b>Стоимость Билета: </b>@Model.shedule.Cost &#8381;</span>
             </div>
         </div>
         <div class="btn-primary" style="text-align:center;">
@@ -31,3 +48,4 @@
         </div>
     </div>
 </div>
+}

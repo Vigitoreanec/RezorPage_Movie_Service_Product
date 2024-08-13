@@ -7,5 +7,7 @@ namespace Rezor_MoviePage.Data;
 public class MovieContext (DbContextOptions<MovieContext> options): DbContext(options)
 {
     public DbSet<Movie> Movies { get; set; }
+    public DbSet<HallCinema> HallCinema { get; set; }
+    public DbSet<Shedule> Shedule { get; set; }
 
 }
