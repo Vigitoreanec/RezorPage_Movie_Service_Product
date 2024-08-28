@@ -4,7 +4,7 @@ namespace Rezor_MoviePage.Model;
 
 public class Movie
 {
-    public required int Id { get; set; }
+    public int Id { get; set; }
     [Required(ErrorMessage = "Вы не заполнили поле \"Название\"")]
     [StringLength(maximumLength: 100, MinimumLength = 5)]
     public required string Title { get; set; }

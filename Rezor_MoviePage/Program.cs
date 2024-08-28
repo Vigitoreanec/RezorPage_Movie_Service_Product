@@ -1,6 +1,10 @@
+using CloudinaryDotNet.Actions;
 using Microsoft.EntityFrameworkCore;
+using Rezor_MoviePage.Core;
 using Rezor_MoviePage.Data;
 using Rezor_MoviePage.Pages;
+using Rezor_MoviePage.Services;
+using Rezor_MoviePage.Services.Interfaces;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +17,14 @@ app.Run();
 
 void ConfigurationServices(IServiceCollection services)
 {
+    //services.AddSingleton<Order>();
+    //services.AddSingleton<Ticket>();
+    //services.AddSingleton<FormatedShedule>();
+
+    services.AddSingleton<IPhotoService,PhotoService>();
+
+    services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+
     services.AddDbContext<MovieContext>(options => 
         options.UseSqlServer(builder.Configuration.GetConnectionString("MovieContext") ??
         throw new InvalidOperationException("Connection string 'MovieContext' not found.")));

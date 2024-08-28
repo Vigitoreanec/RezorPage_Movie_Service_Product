@@ -1,0 +1,49 @@
+﻿@page
+@model Rezor_MoviePage.Pages.Movies.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Movie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="movieViewModel.Title" class="control-label"></label>
+                <input asp-for="movieViewModel.Title" class="form-control" />
+                <span asp-validation-for="movieViewModel.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="movieViewModel.URL" class="control-label"></label>
+                <input asp-for="movieViewModel.URL" type="file" class="form-control" />
+                <span asp-validation-for="movieViewModel.URL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="movieViewModel.Description" class="control-label"></label>
+                <input asp-for="movieViewModel.Description" class="form-control" />
+                <span asp-validation-for="movieViewModel.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="movieViewModel.Duration" class="control-label"></label>
+                <input asp-for="movieViewModel.Duration" class="form-control" />
+                <span asp-validation-for="movieViewModel.Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
