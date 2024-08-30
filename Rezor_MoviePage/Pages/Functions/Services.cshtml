@@ -46,12 +46,15 @@ align-content: center;">
                     text-align: center;">
                         Заказать Услугу
                     </a>
-                   @*  <a class="btn btn-primary" asp-page="./Delete" asp-route-id="@service.Movie.Id" style="
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                            {
+                    <a class="btn btn-primary" asp-page="./Delete" asp-route-id="@service.Movie.Id" style="
                     position: relative;
                     margin: 10px auto;
                     text-align: center;">
                         Удалить
-                    </a> *@
+                    </a>
+                            }
                     @* <a asp-page="./Edit" asp-route-id="@service.Movie.Id" class="btn btn-primary" style="
                     position: relative;
                     margin: 10px auto;

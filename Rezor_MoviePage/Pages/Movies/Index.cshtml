@@ -2,10 +2,10 @@
 @model Rezor_MoviePage.Pages.Movies.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Показ Фильмов";
 }
 
-<h1>Index</h1>
+<h1>Показ Фильмов</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -44,9 +44,12 @@
                 @Html.DisplayFor(modelItem => item.Duration)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    {
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> 
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> 
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    }
             </td>
         </tr>
 }

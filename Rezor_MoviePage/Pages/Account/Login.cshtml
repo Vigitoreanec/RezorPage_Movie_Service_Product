@@ -1,0 +1,48 @@
+﻿@page
+@model Rezor_MoviePage.Pages.Account.LoginModel
+
+@{
+    ViewData["Title"] = "Вход";
+}
+
+<div class="row" style="text-align: center;">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h4>Вход в Аккаунт</h4>
+        </p>
+        @if(TempData["Error"] != null)
+        {
+            <div>
+                <span><b>Извините</b> - @TempData["Error"]</span>
+            </div>
+        }
+        <div class="row" style="text-align: center;">
+            <div class="col-md-8 offset-2">
+                <form method="post">
+                    <div class="form-data">
+                        <label asp-for="@Model.LoginViewModel.EmailAddress"></label>
+                        <input asp-for="@Model.LoginViewModel.EmailAddress" />
+                    </div>
+                    <div class="form-data" style=" margin-top: 10px;">
+                        <label asp-for="@Model.LoginViewModel.Password"></label>
+                        <input asp-for="@Model.LoginViewModel.Password" />
+                    </div>
+                    <div style="margin: 10px 20px;">
+                        <input class="btn btn-primary" type="submit" value="Войти" style="
+                position: relative;
+                width: auto;
+                height: 40px;
+                text-align: center;"></input>
+                    <a class="btn btn-primary" asp-page="../Index" style="
+                position: relative;
+                width: auto;
+                height: 40px;
+                text-align: center;">
+                        Назад
+                    </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

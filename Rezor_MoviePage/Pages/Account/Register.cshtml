@@ -1,0 +1,51 @@
+﻿@page
+@model Rezor_MoviePage.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<div class="row" style="text-align: center;">
+    <div class="col-md-6 offset-3">
+        <p>
+            <h4>Зарегистрация аккаунта</h4>
+        </p>
+        @if (TempData["Error"] != null)
+        {
+            <div>
+                <span><b>Извините</b> - @TempData["Error"]</span>
+            </div>
+        }
+        <div class="row" style="text-align: center;">
+            <div class="col-md-8 offset-2">
+                <form method="post">
+                    <div class="form-data">
+                        <label asp-for="@Model.RegisterViewModel.EmailAddress"></label>
+                        <input asp-for="@Model.RegisterViewModel.EmailAddress" />
+                    </div>
+                    <div class="form-data" style=" margin-top: 10px;">
+                        <label asp-for="@Model.RegisterViewModel.Password"></label>
+                        <input asp-for="@Model.RegisterViewModel.Password" />
+                    </div>
+                    <div class="form-data" style=" margin-top: 10px;">
+                        <label asp-for="@Model.RegisterViewModel.ConfirmPassword"></label>
+                        <input asp-for="@Model.RegisterViewModel.ConfirmPassword" />
+                    </div>
+                    <div style="margin: 10px 20px;">
+                        <input class="btn btn-primary" type="submit" value="Зарегистрироваться" style="
+                position: relative;
+                width: auto;
+                height: 40px;
+                text-align: center;"></input>
+                        <a class="btn btn-primary" asp-page="../Index" style="
+                position: relative;
+                width: auto;
+                height: 40px;
+                text-align: center;">
+                            Назад
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

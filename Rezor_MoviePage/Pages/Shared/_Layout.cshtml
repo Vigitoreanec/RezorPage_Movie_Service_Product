@@ -16,7 +16,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">NAIL-Studio</a>
+            <a class="navbar-brand" href="">NAIL-Studio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -24,13 +24,25 @@
                 <div class="navbar-nav">
                     <a class="nav-link" asp-area="" asp-page="/Index">Меню</a>
                     <a class="nav-link" asp-area="" asp-page="/Functions/Services">Список Услуг</a>
-                    <a class="nav-link" asp-page="/Movies/Index">Показ фильмов</a>
-                    <a class="nav-link" asp-page="/HallsCinema/Index">Мастера</a>
-                    <a class="nav-link" asp-page="/Shedules/Index">Запись на Свободные Даты</a>
+                    @if (User.Identity.IsAuthenticated && (User.IsInRole("admin") || User.IsInRole("user")))
+                    {
 
+                        <a class="nav-link" asp-page="/Movies/Index">Показ фильмов</a>
+                        <a class="nav-link" asp-page="/HallsCinema/Index">Мастера</a>
+                        <a class="nav-link" asp-page="/Shedules/Index">Запись на Свободные Даты</a>
+                        <div class="button login" style="position: absolute; right: 90px; top: 10px;">
+                            <a class="btn btn-secondary" type="button" asp-page="/Account/Logout">Выйти</a>
+                        </div>
+                    }
+                    @if(!User.Identity.IsAuthenticated)
+                    {
+                        <div class="button login" style="position: absolute; right: 90px; top: 10px;">
+                            <a class="btn btn-secondary" type="button" asp-page="/Account/Login">Login</a>
+                            <a class="btn btn-secondary" type="button" asp-page="/Account/Register">Registration</a>
+                        </div>
+                    }
                 </div>
             </div>
-        </div>
     </nav>
     <div class="container_body">
         @RenderBody()  @* вставка страницы *@

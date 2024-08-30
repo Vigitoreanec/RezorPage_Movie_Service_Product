@@ -5,7 +5,7 @@
     ViewData["Title"] = "Расписание";
 }
 
-<h1>Index</h1>
+<h1>Расписание</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -53,9 +53,12 @@
                 @Html.DisplayFor(modelItem => item.Cost)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.SheduleId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.SheduleId">Details</a> |
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    {
+                <a asp-page="./Edit" asp-route-id="@item.SheduleId">Edit</a> 
+                <a asp-page="./Details" asp-route-id="@item.SheduleId">Details</a> 
                 <a asp-page="./Delete" asp-route-id="@item.SheduleId">Delete</a>
+                    }
             </td>
         </tr>
 }

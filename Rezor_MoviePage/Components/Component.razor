@@ -1,0 +1,10 @@
+﻿@using Rezor_MoviePage.Data
+@inject MovieContext Context;
+
+<div class="component" style="position:center;">
+    <h2>Лист Услуг Мастера:</h2>
+@foreach (var item in Context.Movies)
+{
+    <p style="text-align:center">@item.Title</p>
+}
+</div>

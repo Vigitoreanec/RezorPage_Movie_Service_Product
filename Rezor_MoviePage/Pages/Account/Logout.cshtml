@@ -1,0 +1,23 @@
+﻿@page
+@model Rezor_MoviePage.Pages.Account.LogoutModel
+@{
+    ViewData["Title"] = "Выход";
+}
+
+<div class="row" style="text-align: center;">
+    <p>
+        <h4>Выход из аккаунта</h4>
+    </p>
+</div>
+@if (TempData["Error"] != null)
+{
+    <div>
+        <span><b>Извините</b> - @TempData["Error"]</span>
+    </div>
+}
+<div class="row" style="text-align: center;">
+    <h1>Вы действительно хотите выйти из системы?</h1>
+        <form method="post">
+            <button type="submit" class="btn btn-outline-danger">Выйти</button>
+        </form>
+</div>
